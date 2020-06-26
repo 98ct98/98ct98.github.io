@@ -379,13 +379,13 @@
           </header>
         
         <div class="entry-content">
-          <p>​        在使用hexo搭建博客的时候，遇到了一个问题：安装完hexo框架后，在git bash运行命令<code>$ hexo server</code>的时候报错，然后运行命令<code>$ npm audit fix</code>发现缺少了一些依赖，如hexo-generator-index，hexo-renderer-ejs，hexo-renderer-marked等等，这个时候我们可以运行<code>$ npm install &#39;缺少的包&#39;</code>进行安装，例如<code>$ npm install hexo-generator-index</code>，把缺少的包逐一安装，最后发现其他的包都能正常安装，只有hexo-renderer-ejs这个包安装失败,如图<img src="/.com//E:%5Cblog%5Csource_posts%5Chexo%E5%AE%89%E8%A3%85hexo-renderer-ejs%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%5C%E7%BC%BA%E5%B0%91hexo-renderer-ejs.png" alt></p>
-<p>此时git bash报错如图<img src="/.com//E:%5Cblog%5Csource_posts%5Chexo%E5%AE%89%E8%A3%85hexo-renderer-ejs%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%5C%E5%AE%89%E8%A3%85hexo-ejs%E6%8A%A5%E9%94%99.png" alt></p>
+          <p>​        在使用hexo搭建博客的时候，遇到了一个问题：安装完hexo框架后，在git bash运行命令<code>$ hexo server</code>的时候报错，然后运行命令<code>$ npm audit fix</code>发现缺少了一些依赖，如hexo-generator-index，hexo-renderer-ejs，hexo-renderer-marked等等，这个时候我们可以运行<code>$ npm install &#39;缺少的包&#39;</code>进行安装，例如<code>$ npm install hexo-generator-index</code>，把缺少的包逐一安装，最后发现其他的包都能正常安装，只有hexo-renderer-ejs这个包安装失败,如图<img src="https://github.com/98ct98/PicGo/blob/master/%E7%BC%BA%E5%B0%91hexo-renderer-ejs.png?raw=true" alt></p>
+<p>此时git bash报错如图<img src="https://github.com/98ct98/PicGo/blob/master/%E5%AE%89%E8%A3%85hexo-ejs%E6%8A%A5%E9%94%99.png?raw=true" alt></p>
 <p>​        报错信息为’node’不是内部或外部命令，也不是可运行的程序。此时开始分析可能的原因并逐一检验。</p>
 <p>​        1.node环境配置错误，检查了一下node配置的环境，发现没有错误，运行<code>$ node -v</code>查看node版本也没有错误。而且如果node环境配置错误的话，其他的包应该都下载不了，所以不是node环境配置错误的问题，问题依然存在。</p>
 <p>​        2.重装node，重装之后问题依然存在。</p>
 <p>​        3.手动去网页下载hexo-renderer-ejs包并添加到/e/blog目录中，问题依然存在。</p>
-<p>​        4.在hexo目录下即/e/blog目录下打开package.json文件,<img src="/.com//blog\source\_posts\hexo安装hexo-renderer-ejs失败解决方法\package.json.png" style="zoom: 80%;"></p>
+<p>​        4.在hexo目录下即/e/blog目录下打开package.json文件,<img src="https://raw.githubusercontent.com/98ct98/PicGo/master/package.json.png" alt></p>
 <p>​        然后把hexo-renderer-ejs依赖删除，然后运行<code>$ hexo server</code>命令发现网页只显示几行代码，因为hexo-renderer-ejs是渲染依赖，缺少该依赖无法显示样式。</p>
 <p>​        这下我没招了，开始疯狂百度和google，花了两天时间尝试了各种方法，例如<code>$ hexo init</code>重新初始化hexo，不停的删除和重装hexo，<code>$ npm install</code>下载所有缺失包等等，到最后依然无法解决，实在令人抓狂。</p>
 <p>​        最终我灵机一动，既然在git bash上安装不了，那我直接在cmd安装呗，没想到竟然真的安装成功了！！那一瞬间我真的特别激动，尝试了这么久终于成功了！所以我将这次的经验作为我第一篇博客的文章以做纪念。</p>
@@ -420,23 +420,6 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-        
-          
-            <div class="post-nepre full next">
-          
-            <a href="/2020/06/26/hello-world/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/98ct98/cdn@1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                Hello World</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
         
       </section>
       
