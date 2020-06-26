@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a | Hexo</title>
+  <title itemprop="name">hexo安装hexo-renderer-ejs失败解决方法 | Hexo</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -360,78 +360,118 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
 <div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
-    </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      06月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/06/26/hexo%E5%AE%89%E8%A3%85hexo-renderer-ejs%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-                          <span style="color:#0bf;">
-                          26日21:49:40</span>
-                          hexo安装hexo-renderer-ejs失败解决方法
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/06/26/hello-world/">
-                          <span style="color:#0bf;">
-                          26日00:54:36</span>
-                          Hello World
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+          <header class="entry-header">
+            <h1 class="entry-title">hexo安装hexo-renderer-ejs失败解决方法</h1>
+            <p class="entry-census">&nbsp;·&nbsp;2020-6-26&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
+
+            <hr>
+          </header>
+        
+        <div class="entry-content">
+          <p>​        在使用hexo搭建博客的时候，遇到了一个问题：安装完hexo框架后，在git bash运行命令<code>$ hexo server</code>的时候报错，然后运行命令<code>$ npm audit fix</code>发现缺少了一些依赖，如hexo-generator-index，hexo-renderer-ejs，hexo-renderer-marked等等，这个时候我们可以运行<code>$ npm install &#39;缺少的包&#39;</code>进行安装，例如<code>$ npm install hexo-generator-index</code>，把缺少的包逐一安装，最后发现其他的包都能正常安装，只有hexo-renderer-ejs这个包安装失败,如图<img src="/.com//E:%5Cblog%5Csource_posts%5Chexo%E5%AE%89%E8%A3%85hexo-renderer-ejs%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%5C%E7%BC%BA%E5%B0%91hexo-renderer-ejs.png" alt></p>
+<p>此时git bash报错如图<img src="/.com//E:%5Cblog%5Csource_posts%5Chexo%E5%AE%89%E8%A3%85hexo-renderer-ejs%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%5C%E5%AE%89%E8%A3%85hexo-ejs%E6%8A%A5%E9%94%99.png" alt></p>
+<p>​        报错信息为’node’不是内部或外部命令，也不是可运行的程序。此时开始分析可能的原因并逐一检验。</p>
+<p>​        1.node环境配置错误，检查了一下node配置的环境，发现没有错误，运行<code>$ node -v</code>查看node版本也没有错误。而且如果node环境配置错误的话，其他的包应该都下载不了，所以不是node环境配置错误的问题，问题依然存在。</p>
+<p>​        2.重装node，重装之后问题依然存在。</p>
+<p>​        3.手动去网页下载hexo-renderer-ejs包并添加到/e/blog目录中，问题依然存在。</p>
+<p>​        4.在hexo目录下即/e/blog目录下打开package.json文件,<img src="/.com//blog\source\_posts\hexo安装hexo-renderer-ejs失败解决方法\package.json.png" style="zoom: 80%;"></p>
+<p>​        然后把hexo-renderer-ejs依赖删除，然后运行<code>$ hexo server</code>命令发现网页只显示几行代码，因为hexo-renderer-ejs是渲染依赖，缺少该依赖无法显示样式。</p>
+<p>​        这下我没招了，开始疯狂百度和google，花了两天时间尝试了各种方法，例如<code>$ hexo init</code>重新初始化hexo，不停的删除和重装hexo，<code>$ npm install</code>下载所有缺失包等等，到最后依然无法解决，实在令人抓狂。</p>
+<p>​        最终我灵机一动，既然在git bash上安装不了，那我直接在cmd安装呗，没想到竟然真的安装成功了！！那一瞬间我真的特别激动，尝试了这么久终于成功了！所以我将这次的经验作为我第一篇博客的文章以做纪念。</p>
+<p>​        虽然问题解决了，但我还是不知道为什么同样的命令(npm install hexo-renderer-ejs)用git bash安装失败，用cmd命令行安装成功？一番查询之后依然没有找到答案，希望在以后的工作和学习中可以得到答案。</p>
+<p>​        总结：运行<code>$ npm audit fix</code>查找到所有缺少的依赖，然后逐一安装发现只有hexo-renderer-ejs安装失败，安装报错：’’node’不是内部或外部命令，也不是可运行的程序。</p>
+<p>​        解决：此时可以尝试不用git bash安装而用cmd命令进行安装。</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/98ct98/cdn@1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/98ct98/cdn@1.0/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/06/26/hello-world/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/98ct98/cdn@1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Hello World</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
